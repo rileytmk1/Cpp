@@ -6,6 +6,7 @@ using namespace std;
 
 int main()
 {
+<<<<<<< HEAD
   char input[81]; //char array for input
   char str[81]; //char array for removal of spaces and punctuation
   char compare[81]; //char array to compare with str
@@ -44,4 +45,18 @@ int main()
   }
   return 0;
     
+=======
+  char input[80];
+  char str[80];
+  char cmp[80];
+  cin.get(input, 80);
+  for (int i = 0; i < strlen(input); i++){
+    if (isalnum(input[i])){
+      strcat(str, input[i]);
+    }
+  }
+
+  cout << str;
+  
+>>>>>>> 187d621421483cab8d5a3376997f9bb7e589b3df
 }
