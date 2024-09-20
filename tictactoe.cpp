@@ -61,24 +61,29 @@ bool checkTie(char board[4][4]) //if all spaces are filled and no win has been m
 
 int main()
 {
+  //hold wins
   int xWins = 0;
   int oWins = 0;
   while(true){
-    char input[3];
+    char input[5];
+    // represent board with a 2d array
     char board[4][4] = {{' ', '1', '2', '3'}, {'a', ' ', ' ', ' '}, {'b', ' ', ' ', ' '}, {'c', ' ', ' ', ' '}};
+    //keep track of player
     int player = 0;
-    char playAgain;
     while(checkWin(board, 'X') == false && checkWin(board, 'O') == false && checkTie(board) == false){
       printBoard(board);
-      cout << "Player" << " " << (player%2) + 1 << "," << " " << "enter your move." << endl;
+      cout << "Player" << " " << (player%2) + 1 << "," << " " << "enter your move. (enter quit to stop playing)" << endl;
       bool legal = false;
       while(legal == false){
-	cin.get(input, 3);
+	cin.get(input, 5);
 	cin.get();
-	if (board[(input[0]-'a') + 1][int(input[1]-'0')] != ' '){
+	if (strcmp(input, "quit") == 0){ //end program when quit
+	  exit(0);
+	}
+	else if (board[(input[0]-'a') + 1][int(input[1]-'0')] != ' '){ //use coordinates of the grid to locate the spot and check if it is empty
 	  cout << "Illegal move." << endl;
 	}
-	else{
+	else{ //if valid move figure out what player we are on and place an X or O depending on player.
 	  if (player % 2 == 0){
 	    board[(input[0]-'a') + 1][int(input[1]-'0')] = 'X';
 	  }
@@ -90,12 +95,13 @@ int main()
       }
       player++;
     }
-    if (checkTie(board) == true && checkWin(board, 'X') == false && checkWin(board,'O') == false){
+    if (checkTie(board) == true && checkWin(board, 'X') == false && checkWin(board,'O') == false){ //check for ties
+      printBoard(board);
       cout << "It's a tie!" << endl;
       cout << "Leaderboard:" << endl;
       cout << "X: " << xWins << " " << "O: " << oWins << endl;
     }
-    else{
+    else{ //check for wins
       if ((player % 2) -1 == 0){
 	xWins++;
       }
@@ -107,6 +113,7 @@ int main()
       cout << "Leaderboard:" << endl;
       cout << "X: " << xWins << " " << "O: " << oWins << endl;
     }
+    
   }
   return 0;
 }
