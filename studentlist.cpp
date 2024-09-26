@@ -12,7 +12,7 @@ struct Student {
   double gpa;
 };
 
-void addStudent(vector<Student*>& students, char* fname, char* lname, int id, double gpa) {
+void add(vector<Student*>& students, char* fname, char* lname, int id, double gpa) {
     Student* student = new Student;
     strcpy(student->fname, fname);
     strcpy(student->lname, lname);
@@ -21,37 +21,44 @@ void addStudent(vector<Student*>& students, char* fname, char* lname, int id, do
     students.push_back(student);
 }
 
-void displayStudents(vector<Student*>& students) {
+void print(vector<Student*>& students) {
     for (Student* student : students) {
-      cout << student->fname << " " << student->lname << ", " << student->id << ", " << setprecision(2) << student->gpa;
+      cout << student->fname << " " << student->lname << ", " << student->id << ", " << fixed << setprecision(2) << student->gpa << endl;
     }
+}
+
+void delete(vector<Student*>& students){
+  
 }
 
 int main() {
     vector<Student*> students;
     char input[6];
     while (strcmp(input, "QUIT") != 0){
-      cin.get(input, 5);
+      cout << "Enter, ADD, PRINT, or QUIT" << endl;
+      cin.get(input, 6);
       cin.get();
       if (strcmp(input, "ADD") == 0){
 	char fname[10];
 	char lname[10];
 	int id;
 	double gpa;
-	cout << "First name: " << endl;
+	cout << "First name: ";
 	cin.get(fname, 9);
 	cin.get();
-	cout << "Last name: " << endl;
+	cout << "Last name: ";
 	cin.get(lname, 9);
 	cin.get();
-	cout << "ID" << endl;
+	cout << "ID: ";
 	cin >> id;
-	cout << "GPA" << endl;
+	cin.get();
+	cout << "GPA: ";
 	cin >> gpa;
-	addStudent(students, fname, lname, id, gpa); 
+	cin.get();
+	add(students, fname, lname, id, gpa); 
       }
-      if(strcmp(input, "PRINT") == 0){
-	displayStudents(students);
+      else if(strcmp(input, "PRINT") == 0){
+	print(students);
       }
     }
 
