@@ -27,16 +27,28 @@ void print(vector<Student*>& students) {
     }
 }
 
-void delete(vector<Student*>& students){
-  
+//void del(vector<Student*>& students, int check_id){
+// for (Student* student: students){
+//     if(student->id == check_id){
+//	 delete student;
+//     }
+//  }
+
+//}
+
+void del(vector<Student*>& students, int check_id){
+  for (vector<Student*>& students :: iterator it = students.begin() it != students.end(); it++){
+    if(
+  }
 }
+
 
 int main() {
     vector<Student*> students;
-    char input[6];
+    char input[7];
     while (strcmp(input, "QUIT") != 0){
       cout << "Enter, ADD, PRINT, or QUIT" << endl;
-      cin.get(input, 6);
+      cin.get(input, 7);
       cin.get();
       if (strcmp(input, "ADD") == 0){
 	char fname[10];
@@ -51,15 +63,23 @@ int main() {
 	cin.get();
 	cout << "ID: ";
 	cin >> id;
-	cin.get();
+	cin.ignore();
 	cout << "GPA: ";
 	cin >> gpa;
-	cin.get();
+	cin.ignore();
 	add(students, fname, lname, id, gpa); 
       }
       else if(strcmp(input, "PRINT") == 0){
 	print(students);
       }
+      else if(strcmp(input, "DELETE") == 0){
+	int check_id;
+	cout << "ID: ";
+	cin >> check_id;
+	cin.ignore();
+	del(students, check_id);
+      }
+      
     }
 
     
