@@ -27,18 +27,13 @@ void print(vector<Student*>& students) {
     }
 }
 
-//void del(vector<Student*>& students, int check_id){
-// for (Student* student: students){
-//     if(student->id == check_id){
-//	 delete student;
-//     }
-//  }
-
-//}
-
 void del(vector<Student*>& students, int check_id){
-  for (vector<Student*>& students :: iterator it = students.begin() it != students.end(); it++){
-    if(
+  for (auto it = students.begin(); it != students.end(); it++){
+    if((*it)->id == check_id){
+      delete *it;
+      students.erase(it);
+      break;
+    }
   }
 }
 
@@ -47,7 +42,7 @@ int main() {
     vector<Student*> students;
     char input[7];
     while (strcmp(input, "QUIT") != 0){
-      cout << "Enter, ADD, PRINT, or QUIT" << endl;
+      cout << "Enter, ADD, PRINT, DELETE, or QUIT" << endl;
       cin.get(input, 7);
       cin.get();
       if (strcmp(input, "ADD") == 0){
