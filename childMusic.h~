@@ -1,0 +1,12 @@
+#include <iostream>
+#include "parent.h"
+
+using namespace std;
+
+class Music : public Media{
+public:
+  child();
+  char* getArtist;
+  char* getPublisher;
+  int getDuration;
+}
