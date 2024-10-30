@@ -17,6 +17,6 @@ private:
   int duration;
   char publisher[20];
   char artist[20];
-}
+};
 
 #endif

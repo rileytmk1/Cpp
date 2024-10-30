@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <cstring>
-#include "parent.h"
+#include "media.h"
 
 
 using namespace std;
@@ -17,6 +17,6 @@ private:
   int rating;
   char publisher[10];
   
-}
+};
 
 #endif

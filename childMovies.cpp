@@ -5,18 +5,18 @@
 
 using namespace std;
 
-Movies::Movies(){
+Movie::Movie(){
 
 }
 
-int Movies::getDuration(){
+int Movie::getDuration(){
   return duration;
 }
 
-int Movies::getRating(){
+int Movie::getRating(){
   return rating
 }
 
-char* Movies::getDirector(){
+char* Movie::getDirector(){
   return director;
 }

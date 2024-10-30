@@ -3,13 +3,13 @@
 
 #include <iostream>
 #include <cstring>
-#include "parent.h"
+#include "media.h"
 
 using namespace std;
 
-class Movies : public Media {
+class Movie : public Media {
 public:
-  Movies();
+  Movie();
   int getRating();
   char* getDirector();
   int getDuration();
@@ -17,6 +17,6 @@ private:
   int rating;
   char director[20];
   int duration;
-}
+};
 
 #endif

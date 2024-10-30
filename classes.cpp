@@ -1,5 +1,6 @@
 #include <iostream>
-#include <cstream>
+#include <cstring>
+#include <vector>
 #include "media.h"
 #include "childMusic.h"
 #include "childGames.h"
@@ -20,43 +21,65 @@ void ADD(vector<Media*>& media){
     cin.get();
 
 
+
     cout << "Year: " << endl;
     cin >> newMovie->getYear();
     cin.ignore();
 
 
     cout << "Publisher: " << endl;
-    cin >> newMovie->getPublisher();
+    cin.get(newMovie->getPublisher(), 20);
     cin.get();
-
-    float rating;
+ 
+   float rating;
     cout << "Rating: " << endl;
-    cin >> newMovie->getRating;
+    cin >> newMovie->getRating();
     cin.ignore();
+
+    media.push_back(newMovie);
     
   }
   else if (strcmp(input, "video game") == 0){
-    Game newGame = new Game();
+    videoGames newGame = new videoGames();
     cout << "Title: " << endl;
-    cin.get(input, 50);
+    cin.get(newGame->getTitle(), 20);
     cin.get();
 
 
-    int year;
     cout << "Year: " << endl;
-    cin >> year;
+    cin >> newGame->getYear();
     cin.ignore();
+    
+    cout << "Publisher: " << endl;
+    cin.get(newGame->getPublisher());
+    cin.get();
+
+    cout << "Rating: " << endl;
+    cin >> newGame->getRating();
+    cin.ignore();
+    
+    media.push_back(newGame);
   }
   else if (strcmp(input, "music") == 0) {
     Music newMusic = new Music();
     cout << "Title: " << endl;
-    cin.get(input, 50);
+    cin.get(newMusic->getTitle(), 20);
     cin.get();
 
 
     cout << "Year: " << endl;
     cin >> newMusic->getYear();
     cin.ignore();
+
+    cout << "Artist: " << endl;
+    cin.get(newMusic->getArtist(), 20);
+    cin.get();
+
+    cout << "Duration: " << endl;
+    cin >> newMusic->getDuration();
+    cin.ignore();
+
+    media.push_back(newMusic);
   }
 }
 
