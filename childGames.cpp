@@ -1,17 +1,18 @@
 #include <iostream>
 #include <cstring>
 #include "childGames.h"
+#include "media.h"
 
 using namespace std;
 
-child::videoGames() {
+videoGames::videoGames() {
 
 }
 
-char* child::getPublisher(){
+char* videoGames::getPublisher(){
   return publisher;
 }
 
-int child::getRating(){
+int videoGames::getRating(){
   return rating;
 }

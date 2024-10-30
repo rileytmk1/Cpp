@@ -1,3 +1,6 @@
+#ifndef VIDEOGAMES_H
+#define VIDEOGAME_H
+
 #include <iostream>
 #include <cstring>
 #include "parent.h"
@@ -7,7 +10,7 @@ using namespace std;
 
 class videoGames : public Media {
 public:
-  child();
+  videoGames();
   char* getPublisher();
   int getRating();
 private:
@@ -16,4 +19,4 @@ private:
   
 }
 
-  
+#endif

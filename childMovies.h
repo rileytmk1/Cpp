@@ -7,9 +7,9 @@
 
 using namespace std;
 
-class movies : public Media {
+class Movies : public Media {
 public:
-  child();
+  Movies();
   int getRating();
   char* getDirector();
   int getDuration();

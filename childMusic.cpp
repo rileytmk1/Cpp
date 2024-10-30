@@ -1,11 +1,25 @@
+
 #include <iostream>
 #include <cstring>
 
 #include "childMusic.h"
+#include "media.h"
 
 using namespace std;
 
-child::music(){
+Music::Music(){
 
+}
+
+char* Music::getPublisher(){
+  return publisher;
+}
+
+char* Music::getArtist(){
+  return artist;
+}
+
+int Music::getDuration(){
+  return duration;
 }
 

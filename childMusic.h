@@ -3,16 +3,16 @@
 
 #include <iostream>
 #include <cstring>
-#include "parent.h"
+#include "media.h"
 
 using namespace std;
 
 class Music : public Media{
 public:
-  child();
-  char* getArtist;
-  char* getPublisher;
-  int getDuration;
+  Music();
+  char* getArtist();
+  char* getPublisher();
+  int getDuration();
 private:
   int duration;
   char publisher[20];

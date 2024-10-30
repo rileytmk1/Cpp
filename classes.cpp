@@ -15,7 +15,7 @@ void ADD(vector<Media*>& media){
   if (strcmp(input, "movie") == 0){
     Movie newMovie = new Movie();
     cout << "Title: " << endl;
-    cin >> newMovie->getTitle();
+    cin.get(newMovie->getTitle(), 20);
     
     cin.get();
 
