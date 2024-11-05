@@ -6,7 +6,7 @@
 using namespace std;
 
 Movie::Movie(){
-
+ 
 }
 
 int Movie::getDuration(){
@@ -14,7 +14,7 @@ int Movie::getDuration(){
 }
 
 int Movie::getRating(){
-  return rating
+  return rating;
 }
 
 char* Movie::getDirector(){

@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cstring>
-#include "parent.h"
+#include "media.h"
 
 using namespace std;
 
