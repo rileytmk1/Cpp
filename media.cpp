@@ -8,7 +8,7 @@ Media::Media(){
   
 }
 
-int Media::getYear(){
+int& Media::getYear(){
   return year;
 }
 

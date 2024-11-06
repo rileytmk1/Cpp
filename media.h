@@ -9,7 +9,7 @@ using namespace std;
 class Media {
  public:
   Media();
-  int getYear();
+  int& getYear();
   char* getTitle();
  private:
   int year;

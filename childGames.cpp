@@ -5,14 +5,14 @@
 
 using namespace std;
 
-videoGames::videoGames() {
+videoGame::videoGame() {
 
 }
 
-char* videoGames::getPublisher(){
+char* videoGame::getPublisher(){
   return publisher;
 }
 
-int videoGames::getRating(){
+int& videoGame::getRating(){
   return rating;
 }

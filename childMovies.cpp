@@ -9,11 +9,11 @@ Movie::Movie(){
  
 }
 
-int Movie::getDuration(){
+int& Movie::getDuration(){
   return duration;
 }
 
-int Movie::getRating(){
+int& Movie::getRating(){
   return rating;
 }
 

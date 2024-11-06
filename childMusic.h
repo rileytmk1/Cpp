@@ -12,7 +12,7 @@ public:
   Music();
   char* getArtist();
   char* getPublisher();
-  int getDuration();
+  int& getDuration();
 private:
   int duration;
   char publisher[20];

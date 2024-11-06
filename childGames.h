@@ -1,18 +1,17 @@
-#ifndef VIDEOGAMES_H
+#ifndef VIDEOGAME_H
 #define VIDEOGAME_H
 
 #include <iostream>
 #include <cstring>
 #include "media.h"
 
-
 using namespace std;
 
-class videoGames : public Media {
+class videoGame : public Media {
 public:
-  videoGames();
+  videoGame();
   char* getPublisher();
-  int getRating();
+  int& getRating();
 private:
   int rating;
   char publisher[10];

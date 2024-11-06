@@ -19,7 +19,7 @@ char* Music::getArtist(){
   return artist;
 }
 
-int Music::getDuration(){
+int& Music::getDuration(){
   return duration;
 }
 
