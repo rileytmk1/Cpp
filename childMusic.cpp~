@@ -1,4 +1,0 @@
-#include <iostream>
-#include "childMusic.h"
-
-using namespace std;
