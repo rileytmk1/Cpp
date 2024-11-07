@@ -1,3 +1,4 @@
+// header guard
 #ifndef MOVIES_H
 #define MOVIES_H
 
@@ -7,13 +8,14 @@
 
 using namespace std;
 
-class Movie : public Media {
+class Movie : public Media { //Movie: child class | Media: parent class
 public:
   Movie();
+  //functions
   int& getRating();
   char* getDirector();
   int& getDuration();
-private:
+private: //class's private variables
   int rating;
   char director[20];
   int duration;

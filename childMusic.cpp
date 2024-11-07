@@ -7,19 +7,19 @@
 
 using namespace std;
 
-Music::Music(){
+Music::Music(){ //empty constructior
 
 }
 
-char* Music::getPublisher(){
+char* Music::getPublisher(){ //return publisher (char array)
   return publisher;
 }
 
-char* Music::getArtist(){
+char* Music::getArtist(){ //return artist (char array)
   return artist;
 }
 
-int& Music::getDuration(){
+int& Music::getDuration(){ //int function with reference to access variable directly
   return duration;
 }
 

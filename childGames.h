@@ -1,3 +1,4 @@
+// header guard
 #ifndef VIDEOGAME_H
 #define VIDEOGAME_H
 
@@ -7,14 +8,15 @@
 
 using namespace std;
 
-class videoGame : public Media {
+class videoGame : public Media { // videogame: child class | Media: parent class
 public:
   videoGame();
+  //functions
   char* getPublisher();
   int& getRating();
-private:
+private: //class's private variables
   int rating;
-  char publisher[10];
+  char publisher[20];
   
 };
 

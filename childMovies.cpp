@@ -5,18 +5,18 @@
 
 using namespace std;
 
-Movie::Movie(){
+Movie::Movie(){ //empty consturctor
  
 }
 
-int& Movie::getDuration(){
+int& Movie::getDuration(){ //int function with reference to access variable directly
   return duration;
 }
 
-int& Movie::getRating(){
+int& Movie::getRating(){ //int function with reference to access variable directly
   return rating;
 }
 
-char* Movie::getDirector(){
+char* Movie::getDirector(){ //return director (char array)
   return director;
 }

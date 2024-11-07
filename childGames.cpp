@@ -9,10 +9,10 @@ videoGame::videoGame() {
 
 }
 
-char* videoGame::getPublisher(){
+char* videoGame::getPublisher(){ //return char array
   return publisher;
 }
 
-int& videoGame::getRating(){
+int& videoGame::getRating(){ //int function using reference to access the variable directly
   return rating;
 }
