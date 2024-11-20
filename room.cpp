@@ -15,3 +15,10 @@ char* Room::getDescription(){
   return description;
 }
 
+void Room::setExit(char* direction, Room* neighbor){
+  exits[direction] = neighbor;
+}
+
+void setItem(Item* newItem){
+  items.push_back(newItem);
+}

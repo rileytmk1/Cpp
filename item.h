@@ -12,7 +12,7 @@ class Item{
   Item(char*);
   char* getDescription();
  private:
-  char* name[50];
+  char name[50];
 };
 
 #endif
