@@ -5,10 +5,10 @@
 
 using namespace std;
 
-Item::Item(char* setItem){
-  name = setItem;
+Item::Item(const char* setItem){
+  strcpy(name, setItem);
 }
 
-char* Item::getDescription(){
+const char* Item::getDescription(){
   return name;
 }

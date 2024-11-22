@@ -1,7 +1,8 @@
 #include <iostream>
 #include <cstring>
 #include "room.h"
-#include "item.h"
+#include "parser.h"
+#include "player.h"
 
 using namespace std;
 
@@ -9,37 +10,39 @@ int main()
 {
   cout << "A precious jewel has been taken from the local museum. It is rumored that the jewel is stashed in the vault of the hotel. It is your job to take the jewel from the vault and escape as fast as possible!" << endl;
   cout << "Use the go command with a direction to go to different rooms and use the get command to pick up items." << endl;
-
+  map <const char*, Room*> roomsMap;
   Room* lobby = new Room();
-  strcpy(lobby->getDescription, "You are in the hotel lobby.");
+  strcpy(lobby->getDescription(), "You are in the hotel lobby.");
+  roomsMap["lobby"] = lobby;
   Room* showers = new Room();
-  strcpy(showers->getDescription, "You are in the hotel shower room.");
+  strcpy(showers->getDescription(), "You are in the hotel shower room.");
   Room* sauna = new Room();
-  strcpy(sauna->getDescription, "You are in the hotel sauna.");
+  strcpy(sauna->getDescription(), "You are in the hotel sauna.");
   Room* pool = new Room();
-  strcpy(pool->getDescription, "You are in the hotel pool.");
+  strcpy(pool->getDescription(), "You are in the hotel pool.");
   Room* gym = new Room();
-  strcpy(gym->getDescription, "You are in the hotel gym.");
+  strcpy(gym->getDescription(), "You are in the hotel gym.");
   Room* breakfast = new Room();
-  strcpy(breakfast->getDescription, "You are in the hotel breakfast room");
+  strcpy(breakfast->getDescription(), "You are in the hotel breakfast room");
   Room* resturant = new Room();
-  strcpy(resturant->getDescription, "You are in the hotel resturant.");
+  strcpy(resturant->getDescription(), "You are in the hotel resturant.");
   Room* wait = new Room();
-  strcpy(wait->getDescription, "You are in the resturant waiting room.");
+  strcpy(wait->getDescription(), "You are in the resturant waiting room.");
   Room* vending = new Room();
-  strcpy(vending->getDescription, "You are in the hotel's vending machine room.");
+  strcpy(vending->getDescription(), "You are in the hotel's vending machine room.");
+  roomsMap["vending"] = vending;
   Room* movie = new Room();
-  strcpy(movie->getDescription, "You are in hotel movie theater.");
+  strcpy(movie->getDescription(), "You are in hotel movie theater.");
   Room* washing = new Room();
-  strcpy(washing->getDescription, "You are in the hotel washing machine room.");
+  strcpy(washing->getDescription(), "You are in the hotel washing machine room.");
   Room* closet = new Room();
-  strcpy(closet->getDescription, "You are in the janitor's closet.");
+  strcpy(closet->getDescription(), "You are in the janitor's closet.");
   Room* arcade = new Room();
-  strcpy(arcade->getDescription, "You are in the arcade.");
+  strcpy(arcade->getDescription(), "You are in the arcade.");
   Room* ice = new Room();
-  strcpy(ice->getDescription, "You are in the ice room.");
+  strcpy(ice->getDescription(), "You are in the ice room.");
   Room* vault = new Room();
-  strcpy(vault->getDescription, "You have found the vault! Get the jewel and get back to the lobby as fast as you can!");
+  strcpy(vault->getDescription(), "You have found the vault! Get the jewel and get back to the lobby as fast as you can!");
 
   lobby->setExit("north", breakfast);
   lobby->setExit("west", showers);
@@ -55,6 +58,7 @@ int main()
 
   gym->setExit("east", sauna);
 
+  breakfast->setExit("north", resturant);
   breakfast->setExit("south", lobby);
   breakfast->setExit("east", arcade);
 
@@ -67,6 +71,7 @@ int main()
   arcade->setExit("west", breakfast);
   arcade->setExit("north", ice);
 
+  resturant->setExit("south", breakfast);
   resturant->setExit("west", wait);
   resturant->setExit("east", ice);
 
@@ -84,12 +89,23 @@ int main()
 
   vault->setExit("south", ice);
 
-  gym->setItem(new Item*("dumbbell");
-  breakfast->setItem(new Item*("fork"));
-  closet->setItem(new Item*("quarter"));
-  vending->setItem(new Item*("key"));
-  vault->setItem(new Item*("jewel"));
-  
+  gym->setItem(new Item("dumbbell"));
+  breakfast->setItem(new Item("fork"));
+  closet->setItem(new Item("quarter"));
+  vending->setItem(new Item("key"));
+  vault->setItem(new Item("jewel"));
 
+  Parser parser;
+  Player player;
+  Room* currentRoom = lobby;
+  bool play = true;
+  char input[10];
+  cout << currentRoom->getDescription() << endl;
+  cout << currentRoom->getExitString() << endl;
+  while(play){
+    cin.get(input, 10);
+    cin.get();
+    play = parser.processCommand(input, currentRoom, player, roomsMap);
+  }
   
 }
