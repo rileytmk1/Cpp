@@ -15,12 +15,41 @@ bool Parser::processCommand(char* command, Room*& currentRoom, Player& player, m
     cin.get(direction, 10);
     cin.get();
     Room* nextRoom = currentRoom->getExit(direction);
-    cout << "vending: " << roomsMap["vending"] << endl;
+    cout << "vending: " << nextRoom->getRoom("vending", roomsMap) << endl;
     cout << "next room: " << nextRoom << endl;
-    if (nextRoom != nullptr && (nextRoom != roomsMap["vending"])){
+    if (nextRoom != nullptr && nextRoom != nextRoom->getRoom("vending", roomsMap)){
       currentRoom = nextRoom;
       cout << currentRoom->getDescription() << endl;
       cout << currentRoom->getExitString() << endl;
+    }
+    else if (nextRoom == nextRoom->getRoom("vending", roomsMap) && player.hasItem("quarter") == false){
+      currentRoom = nextRoom;
+      cout << currentRoom->getDescription() << endl;
+      cout << "The vending machine is selling keys? It accepts a coin slot....." << endl;
+      cout << "Exits: east west" << endl;
+    }
+    else if (nextRoom == nextRoom->getRoom("vending", roomsMap) && player.hasItem("quarter") == true){
+      currentRoom = nextRoom;
+      cout << currentRoom->getDescription() << endl;
+      cout << "You have a quarter! You use it to access the key." << endl;
+      cout << "Exits: east west" << endl;
+      cout << "Items: key" << endl;
+    }
+    else if (nextRoom == nextRoom->getRoom("vault", roomsMap) && player.hasItem("key") == false){
+      currentRoom = nextRoom;
+      cout << "You've made it to the vault room." << endl;
+      cout << "You try to open the vault but it is locked!" << endl;
+      cout << "Exits: south" << endl;
+    }
+    else if (nextRoom == nextRoom->getRoom("vault", roomsMap) && player.hasItem("key") == true){
+      currentRoom = nextRoom;
+      cout << "You open the vault with your key and the alarms are blaring! Get the jewel and get back to the lobby as fast as possible!" << endl;
+      cout << "Exits: south" << endl;
+      cout << "Items: jewel" << endl;
+    }
+    else if(nextRoom == nextRoom->getRoom("lobby", roomsMap) && player.hasItem("jewel") == true){
+      cout << "Well done fellow agent." << endl;
+      cout << "We will meet again soon." << endl;
     }
     else{
       cout << "You can't go there!" << endl;

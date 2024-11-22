@@ -15,6 +15,7 @@ class Room{
   Room();
   char* getDescription();
   Room* getExit(const char* direction);
+  Room* getRoom(const char*, map<const char*, Room*>&);
   char* getExitString();
   void setExit(const char*, Room*);
   void setItem(Item*);

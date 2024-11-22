@@ -62,6 +62,15 @@ char* Room::getExitString(){
   return exitString;
 }
 
+Room* Room::getRoom(const char* roomName, map<const char*, Room*>& roomsMap){
+  for (auto it = roomsMap.begin(); it != roomsMap.end(); ++it) {
+    if (strcmp(roomName, it->first) == 0){
+      return it->second;
+    }
+  }
+  return nullptr;
+}
+
 void Room::setExit(const char* direction, Room* neighbor){
   exits[direction] = neighbor;
 }

@@ -13,7 +13,7 @@ int main()
   map <const char*, Room*> roomsMap;
   Room* lobby = new Room();
   strcpy(lobby->getDescription(), "You are in the hotel lobby.");
-  roomsMap["lobby"] = lobby;
+  roomsMap.insert(pair<const char*, Room*>("lobby", lobby));
   Room* showers = new Room();
   strcpy(showers->getDescription(), "You are in the hotel shower room.");
   Room* sauna = new Room();
@@ -30,7 +30,8 @@ int main()
   strcpy(wait->getDescription(), "You are in the resturant waiting room.");
   Room* vending = new Room();
   strcpy(vending->getDescription(), "You are in the hotel's vending machine room.");
-  roomsMap["vending"] = vending;
+  roomsMap.insert(pair<const char*, Room*> ("vending", vending));
+  //roomsMap["vending"] = vending;
   Room* movie = new Room();
   strcpy(movie->getDescription(), "You are in hotel movie theater.");
   Room* washing = new Room();
@@ -43,6 +44,8 @@ int main()
   strcpy(ice->getDescription(), "You are in the ice room.");
   Room* vault = new Room();
   strcpy(vault->getDescription(), "You have found the vault! Get the jewel and get back to the lobby as fast as you can!");
+
+  cout << roomsMap["vending"];
 
   lobby->setExit("north", breakfast);
   lobby->setExit("west", showers);
