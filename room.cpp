@@ -15,7 +15,7 @@ char* Room::getDescription(){
   return description;
 }
 
-Item* Room::getItem(const char* itemName){
+Item* Room::getItem(const char* itemName){ //get Item* requested
   for (int i = 0; i < items.size(); i++){
     if(strcmp(items[i]->getDescription(), itemName) == 0){
       return items[i];
@@ -24,7 +24,7 @@ Item* Room::getItem(const char* itemName){
   return nullptr;
 }
 
-void Room::removeItem(Item* item){
+void Room::removeItem(Item* item){ //remove item from item vector
   for (auto it = items.begin(); it != items.end(); ++it){
     if (*it == item){
       items.erase(it);
@@ -33,7 +33,7 @@ void Room::removeItem(Item* item){
   }
 }
 
-Room* Room::getExit(const char* direction){
+Room* Room::getExit(const char* direction){ //gets the room for the direction the player goes
   for (auto& exit : exits){
     if (strcmp(exit.first, direction) == 0){
       return exit.second;
@@ -42,33 +42,33 @@ Room* Room::getExit(const char* direction){
   return nullptr;
 }
 
-char* Room::getExitString(){
+char* Room::getExitString(){ 
   static char exitString[500];
   strcpy(exitString, "Exits:");
-  for (auto& exit : exits){
-    strcat(exitString, " ");
-    strcat(exitString, exit.first);
+  for (auto& exit : exits){ //get the exits from the map
+    strcat(exitString, " "); 
+    strcat(exitString, exit.first); //add them to  the return string
   }
-  strcat(exitString, "\nItems in this room:");
+  strcat(exitString, "\nItems in this room: ");
   if (items.empty()){
     strcat(exitString, "No Items.");
   }
   else{
-    for (auto& item: items){
+    for (auto& item: items){ //go through items vector to get the items from the room
       strcat(exitString, " ");
-      strcat(exitString, item->getDescription());
+      strcat(exitString, item->getDescription()); //add them to return string
     }
   }
   return exitString;
 }
 
-Room* Room::getRoom(const char* roomName, map<const char*, Room*>& roomsMap){
+Room* Room::getRoom(const char* roomName, map<const char*, Room*>& roomsMap){ //gives Room* from the map (for the special rooms)
   for (auto it = roomsMap.begin(); it != roomsMap.end(); ++it) {
     if (strcmp(roomName, it->first) == 0){
       return it->second;
     }
   }
-  return nullptr;
+  return nullptr; //if doesn't exist
 }
 
 void Room::setExit(const char* direction, Room* neighbor){

@@ -5,7 +5,7 @@
 
 using namespace std;
 
-Item::Item(const char* setItem){
+Item::Item(const char* setItem){ 
   strcpy(name, setItem);
 }
 

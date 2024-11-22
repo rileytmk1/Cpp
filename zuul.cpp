@@ -8,12 +8,13 @@ using namespace std;
 
 int main()
 {
+  //intro + setting exits and rooms
   cout << "A precious jewel has been taken from the local museum. It is rumored that the jewel is stashed in the vault of the hotel. It is your job to take the jewel from the vault and escape as fast as possible!" << endl;
   cout << "Use the go command with a direction to go to different rooms and use the get command to pick up items." << endl;
   map <const char*, Room*> roomsMap;
   Room* lobby = new Room();
   strcpy(lobby->getDescription(), "You are in the hotel lobby.");
-  roomsMap.insert(pair<const char*, Room*>("lobby", lobby));
+  roomsMap.insert(pair<const char*, Room*>("lobby", lobby)); //map stores these specific rooms to access later
   Room* showers = new Room();
   strcpy(showers->getDescription(), "You are in the hotel shower room.");
   Room* sauna = new Room();
@@ -30,7 +31,7 @@ int main()
   strcpy(wait->getDescription(), "You are in the resturant waiting room.");
   Room* vending = new Room();
   strcpy(vending->getDescription(), "You are in the hotel's vending machine room.");
-  roomsMap.insert(pair<const char*, Room*> ("vending", vending));
+  roomsMap.insert(pair<const char*, Room*> ("vending", vending)); // map stores these specific rooms to access later
   //roomsMap["vending"] = vending;
   Room* movie = new Room();
   strcpy(movie->getDescription(), "You are in hotel movie theater.");
@@ -43,9 +44,9 @@ int main()
   Room* ice = new Room();
   strcpy(ice->getDescription(), "You are in the ice room.");
   Room* vault = new Room();
+  roomsMap.insert(pair<const char*, Room*> ("vault", vault)); //map stores these specific rooms to access later
   strcpy(vault->getDescription(), "You have found the vault! Get the jewel and get back to the lobby as fast as you can!");
 
-  cout << roomsMap["vending"];
 
   lobby->setExit("north", breakfast);
   lobby->setExit("west", showers);

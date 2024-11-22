@@ -10,8 +10,8 @@ using namespace std;
 
 class Item{
  public:
-  Item(const char*);
-  const char* getDescription();
+  Item(const char*); //item constructor
+  const char* getDescription(); //name of item
  private:
   char name[50];
 };

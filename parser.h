@@ -9,7 +9,7 @@
 
 class Parser{
  public:
-  bool processCommand(char*, Room*& , Player&, map<const char*, Room*>&);
+  bool processCommand(char*, Room*& , Player&, map<const char*, Room*>&); //function to process commands
  private:
   char* command[10];
 };

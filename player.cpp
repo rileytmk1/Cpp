@@ -11,12 +11,12 @@ Player::Player() {
 
 }
 
-void Player::addItem(Item* newItem){
+void Player::addItem(Item* newItem){ //add to item to vector hollding inventory
   inventory.push_back(newItem);
 }
 
 void Player::dropItem(Item* item){
-  for (auto it = inventory.begin(); it != inventory.end(); ++it) {
+  for (auto it = inventory.begin(); it != inventory.end(); ++it) { //remove wanted item from inventory vector
     if (*it == item) {
       inventory.erase(it);
       break;
@@ -25,7 +25,7 @@ void Player::dropItem(Item* item){
   }
 }
 
-Item* Player::getItem(const char* itemName){
+Item* Player::getItem(const char* itemName){ //get Item* from inventory
   for (auto& item : inventory) {
     if (strcmp(item->getDescription(), itemName) == 0) {
       return item;
@@ -34,14 +34,14 @@ Item* Player::getItem(const char* itemName){
   return nullptr;
 }
 
-void Player::printInventory(){
+void Player::printInventory(){ 
   cout << "Inventory:";
   for(auto& item: inventory){
     cout << " " << item->getDescription() << endl;
   }
 }
 
-bool Player::hasItem(const char* itemName){
+bool Player::hasItem(const char* itemName){ //same as getItem bur returns a boolean if it exists or not
   for (auto item : inventory){
     if (strcmp(item->getDescription(), itemName) == 0){
       return true;
