@@ -52,7 +52,7 @@ bool Parser::processCommand(char* command, Room*& currentRoom, Player& player, m
       cout << "Items: jewel" << endl;
     }
     else if(nextRoom == nextRoom->getRoom("lobby", roomsMap) && player.hasItem("jewel") == true){ //return false here because it is the winning case
-      cout << "Well done fellow agent. You have have succesfully rescued the jewel." << endl;
+      cout << "Well done fellow agent. You have have succesfully rescued the jewel and made it back to the lobby." << endl;
       cout << "We will meet again soon....." << endl;
       cout << "YOU WIN!!!" << endl;
       return false;

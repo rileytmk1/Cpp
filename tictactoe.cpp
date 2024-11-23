@@ -64,12 +64,14 @@ int main()
   //hold wins
   int xWins = 0;
   int oWins = 0;
-  while(true){
+  bool playAgain = true;
+  while(playAgain){
     char input[5];
     // represent board with a 2d array
     char board[4][4] = {{' ', '1', '2', '3'}, {'a', ' ', ' ', ' '}, {'b', ' ', ' ', ' '}, {'c', ' ', ' ', ' '}};
     //keep track of player
     int player = 0;
+    char play[5];
     while(checkWin(board, 'X') == false && checkWin(board, 'O') == false && checkTie(board) == false){
       printBoard(board);
       cout << "Player" << " " << (player%2) + 1 << "," << " " << "enter your move. (enter quit to stop playing)" << endl;
@@ -112,6 +114,12 @@ int main()
       cout << "Player" << " " << (player % 2) << " " << "wins!" << endl;
       cout << "Leaderboard:" << endl;
       cout << "X: " << xWins << " " << "O: " << oWins << endl;
+      cout << "Play Again?" << endl;
+      cin.get(play, 4);
+      cin.get();
+      if (strcmp(play, "no") == 0){
+	playAgain = false;
+      }
     }
     
   }

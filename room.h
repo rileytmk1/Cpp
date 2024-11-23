@@ -13,15 +13,15 @@ using namespace std;
 class Room{
  public:
   Room();
-  char* getDescription();
-  Room* getExit(const char* direction);
-  Room* getRoom(const char*, map<const char*, Room*>&);
-  char* getExitString();
-  void setExit(const char*, Room*);
-  void setItem(Item*);
-  Item* getItem(const char*);
-  void removeItem(Item*);
-  void addItem(const char*);
+  char* getDescription(); //description of room
+  Room* getExit(const char* direction); //next room given direction
+  Room* getRoom(const char*, map<const char*, Room*>&); //access room from map
+  char* getExitString(); //return string with exits and items
+  void setExit(const char*, Room*); //set room exits
+  void setItem(Item*); //set items in room
+  Item* getItem(const char*); //get Item*
+  void removeItem(Item*); //remove item from room
+  //void addItem(const char*);
 
 
  private:
